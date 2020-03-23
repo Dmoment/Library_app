@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<div class="well xs-8 xs-offset-2">
+<h4 class="center">
+  <strong>Name:</strong>
+  <%= @library.name %>
+<hr>
+<br>
+<%= link_to 'Edit this library', edit_library_path(@library), class: "btn btn-xs btn-primary" %>
+<%= link_to 'Delete this library', library_path(@library), method: :delete, data: { confirm: 'Are you sure?' },
+class: "btn btn-xs btn-danger" %>
+  
+<%= link_to 'View all libraries', libraries_path, class: "btn btn-xs btn-success" %>
+<div>

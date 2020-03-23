@@ -1,0 +1,55 @@
+
+
+@import 'bootstrap/scss/bootstrap';
+
+#logo{
+    float: left;
+    font-size: large;
+    color: rgb(3, 3, 3);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+.center{
+    text-align: center;
+}
+
+.jumbotron{
+    background-image: asset-url('stanislav-kondratiev-6pO3QFkk7hQ-unsplash.jpg');
+    background-size: cover;
+    height: 550px ;
+}
+
+.jumbotron h1{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+.btn-xlarge{
+    font-size: 1.7em;
+    background-color: #5cb85c;
+}
+
+.footer{
+    margin-top: 30px;
+    padding-top: 5px;
+    border-top: 1px solid #eaeaea;
+    color: #777777;
+}
+#error_explanation {
+    color: #f00;
+    ul {
+      list-style: none;
+      margin: 0 0 18px 0;
+    }
+
+  }
+#library-title{
+    font-weight: bold;
+    font-size: 1.5em;
+}  
+  
+ 
