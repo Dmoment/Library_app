@@ -10,7 +10,9 @@ class BooksController < ApplicationController
         @book = Book.new
     end
     def create
+        
         @book = Book.new(book_params)
+         @book.user= User.first
         respond_to do |format|
           if @book.save
             format.html { redirect_to @book, notice: 'Book was successfully created.' }
