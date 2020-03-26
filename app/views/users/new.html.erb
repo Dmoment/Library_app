@@ -1,0 +1,35 @@
+<%= render 'shared/errors',obj: @user %>
+<%= form_with(model: @user, local: true,:html => {class: "form-horizontal",role:"form"}) do |form| %>
+  
+<h1 align="center" > Signup for Library App</h1>
+  <div class="form-group row">
+ 
+    <%= form.label :Username, class: "col-sm-2 col-form-label" %>
+    
+    <div class="col-sm-8">
+    <%= form.text_field :username,class: "form-control", placeholder: "Enter username", autofocus: true %>
+  </div>
+  </div>
+  <div class="form-group row">
+ 
+    <%= form.label :Email, class: "col-sm-2 col-form-label" %>
+    
+    <div class="col-sm-8">
+    <%= form.email_field :email,class: "form-control", placeholder: "Enter email", autofocus: true %>
+  </div>
+  </div>
+  <div class="form-group row">
+ 
+    <%= form.label :Password, class: "col-sm-2 col-form-label" %>
+    
+    <div class="col-sm-8">
+    <%= form.password_field :password,class: "form-control", placeholder: "Enter password", autofocus: true %>
+  </div>
+  </div>
+  <div class="form-group row",align="center">
+    <div class="col-sm-offset-2 col-auto">
+        <%= form.submit "Signup",class: "btn btn-primary btn-lg offset-md-8" %>
+    </div>
+    </div>
+  
+<% end %>
