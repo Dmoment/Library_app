@@ -1,0 +1,27 @@
+<% obj.each do |book| %>
+    <div class="row">
+<div class="md-8 offset-md-2">
+<div class="card", style="width: 50rem;">
+<div class="card-header">
+    <b>Books's Name: <ensp>
+   <strong>   <%= link_to book.name, book_path(book) , class: "book-title"%></strong>
+      </div>
+      <div class="card-body">
+      <b>Author's Name: <ensp>
+      <strong><%= book.author %></strong>
+      <br>
+      <b>Price: <ensp>
+      <strong><%= book.price %></strong>
+      <br>
+      <%= link_to 'Edit this book', edit_book_path(book), class: "btn btn-xs btn-primary" %>
+<%= link_to 'Delete this library', book_path(book), method: :delete, data: { confirm: 'Are you sure?' },
+class: "btn btn-xs btn-danger" %>
+</div>
+</div>
+<br>
+</div>
+</div> 
+  <% end %>
+
+
+<%= link_to 'New Book', new_book_path %>
