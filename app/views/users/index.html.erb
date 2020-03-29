@@ -1,0 +1,19 @@
+<h1 align="center">Viewing all users</h1>
+<div align="center">
+<% @users.each do |user| %>
+    <ul class="listing " >
+    <div class="row">
+    <div class ="card offset-md-3  mb-3 w-50 p-3",style="width: 18rem;">
+    <div class="card-header">
+    <li><%= link_to user.username, user_path(user) %></li>
+    </div>
+    
+    <div class="card-body">
+    <li><%= link_to gravatar_for(user), user_path(user) %></li>
+    <li><%= pluralize(user.books.count,"books") if user.books %></li>
+    </div>
+    </div>
+    </div>
+    </ul>
+<% end %>
+</div>      
