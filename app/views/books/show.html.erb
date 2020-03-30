@@ -1,9 +1,24 @@
 <p id="notice"><%= notice %></p>
+<ul class="listing " >
+<div class="row">
+<div class ="card offset-md-3  mb-3 w-50 p-3",style="width: 18rem;">
+<div class="card-header center">
+<li><strong>Issued to: <%= link_to @book.user.username, user_path(@book.user) %></strong></li>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @book.name %>
-</p>
+<div class="card-body center">
+<li><%= link_to gravatar_for(@book.user), user_path(@book.user) %></li>
+<li><%= pluralize(@book.user.books.count,"books") if @book.user.books %></li>
+<li> <p>
+<strong>Name:</strong>
+<%= @book.name %>
+</p></li>
+<li><%= link_to 'Edit', edit_book_path(@book) %></li>
+</div>
+</div>
+</div>
+</ul>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
+
+ 
 <%= link_to 'Back', books_path %>
