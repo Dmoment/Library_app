@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
     before_action :set_book, only: [:show, :edit, :update, :destroy]
+    include Pagy::Backend
     def index
-        @books= Book.paginate(page: params[:page], per_page: 4)
+        @pagy, @books = pagy(Book.all, items: 4)
     end
     def show
       @book= Book.find(params[:id])
