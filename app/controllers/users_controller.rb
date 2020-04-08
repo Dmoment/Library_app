@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
     include Pagy::Backend
     before_action :set_user, only: [:show, :edit, :update]
+    before_action :require_same_user, only: [:edit, :update]
+    
     def new
     @user =User.new
     end
@@ -45,5 +47,12 @@ class UsersController < ApplicationController
 
     def set_user
         @user =User.find(params[:id])  
+    end
+
+    def require_same_user
+       if current_user!= @user 
+        flash[:danger]="You can only modify your details not others"
+        redirect_to root_path
+       end
     end
 end

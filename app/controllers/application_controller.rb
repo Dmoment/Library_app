@@ -19,7 +19,7 @@ end
 def require_user
    if !logged_in?
     flash[:danger]="You must be logged in to perform this action"
-    redierct_to root_path
+    redirect_to root_path
    end
    #this method restricts some functionalities for the user who is not logged in
 end

@@ -1,5 +1,8 @@
 class BooksController < ApplicationController
     before_action :set_book, only: [:show, :edit, :update, :destroy]
+    before_action :require_user, except: [:show, :index]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
+    
     include Pagy::Backend
     def index
         @pagy, @books = pagy(Book.all, items: 4)
@@ -14,7 +17,7 @@ class BooksController < ApplicationController
     def create
         
         @book = Book.new(book_params)
-         @book.user= User.first
+         @book.user= current_user
         respond_to do |format|
           if @book.save
             format.html { redirect_to @book, notice: 'Book was successfully created.' }
@@ -56,5 +59,12 @@ class BooksController < ApplicationController
       # Never trust parameters from the scary internet, only allow the white list through.
       def book_params
         params.require(:book).permit(:name,:author,:price)
+      end
+
+      def require_same_user
+          if current_user!= @book.user #here we can access @book because the execution of before action has already taken place
+            flash[:danger]="You can only modify your own books "
+            redirect_to root_path
+          end  
       end
 end
