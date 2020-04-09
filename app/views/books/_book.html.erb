@@ -13,7 +13,7 @@
       <b>Price: <ensp>
       <strong><%= book.price %></strong>
       <br>
-      <% if current_user== book.user %>
+      <% if current_user== book.user || current_user.admin? %>
       <%= link_to 'Edit this book', edit_book_path(book), class: "btn btn-xs btn-primary" %>
 <%= link_to 'Delete this book', book_path(book), method: :delete, data: { confirm: 'Are you sure?' },
 class: "btn btn-xs btn-danger" %>

@@ -62,7 +62,7 @@ class BooksController < ApplicationController
       end
 
       def require_same_user
-          if current_user!= @book.user #here we can access @book because the execution of before action has already taken place
+          if current_user!= @book.user and !current_user.admin? #here we can access @book because the execution of before action has already taken place
             flash[:danger]="You can only modify your own books "
             redirect_to root_path
           end  
