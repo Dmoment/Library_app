@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "pages#home"
   resources :libraries
   resources :books
   get 'signup', to:'users#new'
@@ -7,6 +8,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   resources :users , except: [:new]
   #root "libraries#index"
-  root "pages#home"
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

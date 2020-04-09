@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
+gem 'sqlite3', '~> 1.4'
 ruby '2.6.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.4.1'
@@ -35,12 +35,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'sqlite3', '~> 1.3.6'
+  gem 'sqlite3', '~> 1.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-  
+  gem 'sqlite3', '~> 1.4'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
