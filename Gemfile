@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 #gem 'sqlite3', '~> 1.4'
+gem 'rails-controller-testing'
 ruby '2.6.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.4.1'

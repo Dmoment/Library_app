@@ -1,0 +1,17 @@
+<h1 align="center">Viewing all genres</h1>
+<div align="center">
+<%== pagy_bootstrap_nav(@pagy) %>
+<% @genres.each do |genre| %>
+    <ul class="listing " >
+    <div class="row">
+    <div class ="card offset-md-3  mb-3 w-50 p-3",style="width: 18rem;">
+    <div class="card-header">
+    <li><%= link_to genre.name, genre_path(genre) %></li>
+    </div>
+    
+   
+    </div>
+    </div>
+    </ul>
+<% end %>
+</div>      
