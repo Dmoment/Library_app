@@ -1,5 +1,6 @@
 class GenresController < ApplicationController
     include Pagy::Backend
+    before_action :require_admin, except: [:index, :show]
     def index
         @pagy, @genres=pagy(Genre.all, items: 4)
     end
@@ -26,4 +27,14 @@ class GenresController < ApplicationController
     def genre_params
      params.require(:genre).permit(:name)
     end
+
+    def require_admin
+      if !logged_in? || (logged_in? and !current_user.admin?)
+        flash[:danger]="Only admin can perform that action"
+        redirect_to genres_path
+      end
+    end
+      
+
+    
 end

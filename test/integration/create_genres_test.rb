@@ -13,4 +13,6 @@ class CreateGenresTest < ActionDispatch::IntegrationTest
         assert_match 'fiction', response.body #6. This will just display a message body.
 
     end
+
+   
 end
