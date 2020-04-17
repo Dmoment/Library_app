@@ -11,6 +11,7 @@
         
         <%= link_to "Libraries", libraries_path ,class: "nav-link"%>
       </li>
+      
       <% if logged_in? %>
       <li class="nav-item">
         
@@ -36,6 +37,25 @@
       <%= link_to "Log In", login_path, class: "nav-link" %>
       <%= link_to "Sign Up", signup_path, class: "nav-link" %>
       <% end %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Genres
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+          <%= link_to "All genres", genres_path,class: "dropdown-item" %>
+          <% Genre.all.each do |genre| %>
+            <%= link_to "#{genre.name}",genre_path(genre) %> <br>
+            
+          <% end %>
+          <% if logged_in? and current_user.admin? %>
+          <div class="dropdown-divider"></div>
+               <%= link_to "New Genre", new_genre_path,class: "dropdown-item" %>
+             </div>
+          <% end %>
+          </div>
+      </li>
+      
       </ul>
       <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
