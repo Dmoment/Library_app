@@ -1,21 +1,2 @@
-<%= render 'shared/errors',obj: @genre %>
-<%= form_with(model: @genre, local: true,:html => {class: "form-horizontal",role:"form"}) do |form| %>
-  
-
-  <div class="form-group row">
- 
-    <%= form.label :Name, class: "col-sm-2 col-form-label" %>
-    
-    <div class="col-sm-8">
-    <%= form.text_field :name,class: "form-control", placeholder: "Enter Genre name", autofocus: true %>
-  </div>
-  </div>
-  
-  <div class="form-group row",align="center">
-    <div class="col-sm-offset-2 col-auto">
-        <%= form.submit(@genre.new_record? ? "Create": "Update",class: "btn btn-primary btn-lg offset-md-8") %>
-    </div>
-    </div>
-  <% end %>
-
-
+<h1 align="center">Create Genre </h1>
+<%= render "form" %>

@@ -1,6 +1,10 @@
 <h1 align="center">Genres: <%= @genre.name %></h1>
 <div align="center">
-
+<% if logged_in? and current_user.admin? %>
+<div class="row offset-md-5">
+<span class="badge badge-info" > <%= link_to "Edit the genre", edit_genre_path(@genre) %> &nbsp;&nbsp;</span>
+</div>
+<% end %>
 <%== pagy_bootstrap_nav(@pagy) %>
 </div>
    <%= render 'books/book' , obj: @genre_books%>
