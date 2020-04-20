@@ -15,8 +15,9 @@ class BooksController < ApplicationController
         @book = Book.new
     end
     def create
-        
+      
         @book = Book.new(book_params)
+        
          @book.user= current_user
         respond_to do |format|
           if @book.save
@@ -58,7 +59,7 @@ class BooksController < ApplicationController
   
       # Never trust parameters from the scary internet, only allow the white list through.
       def book_params
-        params.require(:book).permit(:name,:author,:price)
+        params.require(:book).permit(:name,:author,:price, genre_ids: [])
       end
 
       def require_same_user
