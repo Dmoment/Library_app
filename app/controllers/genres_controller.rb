@@ -20,6 +20,8 @@ class GenresController < ApplicationController
     end
 
     def show
+      @genre=Genre.find(params[:id])
+      @pagy, @genre_books=pagy(@genre.books, items: 4)
 
     end
 

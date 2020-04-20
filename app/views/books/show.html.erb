@@ -13,6 +13,9 @@
 <strong>Name:</strong>
 <%= @book.name %>
 </p></li>
+<% if @book.genres.any? %>
+  <p> Genres: <%= render @book.genres %></p> <!-- this will do the same thing as do each block -->
+<% end %>
 <li><%= link_to 'Edit', edit_book_path(@book) %></li>
 </div>
 </div>
